@@ -1,21 +1,23 @@
 <template>
-  <div>
-    <div>已完成{{ isComplete }}/全部{{ all }}</div>
-    <div v-if="isComplete > 0"><button>清除已完成</button></div>
-  </div>
+  <Footer class="layout-footer-center">
+    Copyright &copy; todolist.cn
+    <Button type="text" @click="clear">Clear</Button>
+  </Footer>
 </template>
 
 <script>
 export default {
   name: "NavFooter",
-  data() {
-    return {
-      isComplete: 1,
-      all: 3,
-    };
+  methods: {
+    clear(index) {
+      this.$emit("clear", index);
+    },
   },
 };
 </script>
 
 <style lang="scss" scoped>
+.layout-footer-center {
+  text-align: center;
+}
 </style>

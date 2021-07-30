@@ -2,7 +2,7 @@
   <div class="home">
     <div class="layout">
       <Layout>
-        <nav-header :list="list" @addTodo="add"></nav-header>
+        <nav-header :list="list" @addTodo="addTodo"></nav-header>
         <nav-main
           :list="list"
           :donelist="donelist"
@@ -22,56 +22,40 @@ import NavHeader from "@/components/navHeader/NavHeader";
 import NavMain from "@/components/navMain/NavMain";
 import NavFooter from "@/components/navFooter/NavFooter";
 
+import { createNamespacedHelpers } from "vuex";
+const { mapGetters, mapActions: step1Actions } = createNamespacedHelpers("foo");
+
 export default {
   name: "Home",
-  props: {},
   components: {
     NavHeader,
     NavMain,
     NavFooter,
   },
   computed: {
-    list() {
-      return this.$store.state.list;
-    },
-    donelist() {
-      return this.$store.state.donelist;
-    },
+    ...mapGetters(["list", "donelist"]),
   },
   methods: {
-    add(inputValue) {
-      this.$store.commit("addTodo", {
-        name: inputValue,
-        complete: false,
-      });
-    },
-    delTodo(index) {
-      this.$store.commit("delTodo", index);
-    },
-    delDone(index) {
-      this.$store.commit("delDone", index);
-    },
-    clear(index) {
-      this.$store.commit("clear", index);
-    },
-    move2Done(item, index) {
-      this.$store.commit("move2Done", {
-        name: item.name,
-        complete: true,
-      });
-    },
-    move2Todo(item, index) {
-      this.$store.commit("move2Todo", {
-        name: item.name,
-        complete: false,
-      });
-    },
+    ...step1Actions([
+      "delTodo",
+      "delDone",
+      "clear",
+      "move2Done",
+      "move2Todo",
+      "addTodo",
+    ]),
   },
 };
 </script>
 
 <style lang="scss" scoped>
+.home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 .layout {
+  width: 1536px;
   border: 1px solid #d7dde4;
   background: #f5f7f9;
   position: relative;

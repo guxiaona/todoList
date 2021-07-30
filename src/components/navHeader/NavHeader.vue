@@ -1,7 +1,7 @@
 <template>
   <Header :style="{ padding: '0 400px', margin: '20px 0' }">
     <Menu mode="horizontal" theme="dark" active-name="1">
-      <div class="layout-logo">ToDoList</div>
+      <div class="layout-name">ToDoList</div>
       <div class="layout-nav">
         <MenuItem name="1">
           <Input
@@ -45,22 +45,16 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.layout-logo {
-  width: 100px;
-  height: 30px;
-  line-height: 30px;
-  // background: #5b6270;
-  border-radius: 3px;
+.layout-name {
+  width: 20%;
   float: left;
   position: relative;
   color: #fff;
   font-size: 25px;
-  top: 15px;
-  left: 20px;
 }
 .layout-nav {
-  width: 420px;
+  width: 40%;
   margin: 0 auto;
-  margin-right: 20px;
+  margin-right: 20%;
 }
 </style>

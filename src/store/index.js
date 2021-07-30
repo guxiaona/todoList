@@ -4,43 +4,76 @@ import Vuex from 'vuex'
 Vue.use(Vuex)
 
 export default new Vuex.Store({
-    state: {
-        list: [{
-                name: "gu",
-                complete: false,
-            },
-            {
-                name: "xiao",
-                complete: false,
-            },
-        ],
-        donelist: [{
-            name: 'na',
-            complete: true
-        }],
-    },
-    mutations: {
-        addTodo(state, payload) {
-            state.list.push(payload)
-        },
-        delTodo(state, payload) {
-            state.list.splice(payload, 1)
-        },
-        delDone(state, payload) {
-            state.donelist.splice(payload, 1)
-        },
-        clear(state, payload) {
-            state.list = []
-            state.donelist = []
-        },
-        move2Done(state, payload) {
-            state.donelist.push(payload)
-        },
-        move2Todo(state, payload) {
-            state.list.push(payload)
-        }
-
-    },
+    state: {},
+    mutations: {},
+    getters: {},
     actions: {},
-    modules: {}
+    modules: {
+        foo: {
+            namespaced: true,
+            state: {
+                list: [{
+                        name: "gu",
+                        complete: false,
+                    },
+                    {
+                        name: "xiao",
+                        complete: false,
+                    },
+                ],
+                donelist: [{
+                    name: 'na',
+                    complete: true
+                }],
+            },
+            getters: {
+                list: state => state.list,
+                donelist: state => state.donelist,
+            },
+            mutations: {
+                addTodo: (state, data) => {
+                    state.list.push({
+                        name: data,
+                        complete: false,
+                    })
+                },
+                delTodo: (state, data) => {
+                    state.list.splice(data, 1)
+                },
+                delDone: (state, data) => {
+                    state.donelist.splice(data, 1)
+                },
+                clear: (state, data) => {
+                    state.list = []
+                    state.donelist = []
+                },
+                move2Done: (state, data) => {
+                    state.donelist.push(data)
+                },
+                move2Todo: (state, data) => {
+                    state.list.push(data)
+                },
+            },
+            actions: {
+                addTodo: ({ commit }, data) => {
+                    commit("addTodo", data);
+                },
+                delTodo: ({ commit }, data) => {
+                    commit("delTodo", data);
+                },
+                delDone: ({ commit }, data) => {
+                    commit("delDone", data);
+                },
+                clear: ({ commit }, data) => {
+                    commit("clear", data);
+                },
+                move2Done: ({ commit }, data) => {
+                    commit("move2Done", data);
+                },
+                move2Todo: ({ commit }, data) => {
+                    commit("move2Todo", data);
+                },
+            },
+        }
+    }
 })

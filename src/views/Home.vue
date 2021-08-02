@@ -23,7 +23,9 @@ import NavMain from "@/components/navMain/NavMain";
 import NavFooter from "@/components/navFooter/NavFooter";
 
 import { createNamespacedHelpers } from "vuex";
-const { mapGetters, mapActions: step1Actions } = createNamespacedHelpers("foo");
+
+const { mapGetters: step0Getters, mapActions: step0Actions } =
+  createNamespacedHelpers("foo");
 
 export default {
   name: "Home",
@@ -33,16 +35,16 @@ export default {
     NavFooter,
   },
   computed: {
-    ...mapGetters(["list", "donelist"]),
+    ...step0Getters(["list", "donelist"]),
   },
   methods: {
-    ...step1Actions([
+    ...step0Actions([
+      "addTodo",
       "delTodo",
       "delDone",
       "clear",
       "move2Done",
       "move2Todo",
-      "addTodo",
     ]),
   },
 };

@@ -25,7 +25,7 @@
 7.main组件的功能实现
   使用iview组件库中的content、card组件，调整样式
   使用h1来实现“正在进行”的标题内容，使用span放入list.length来实现计数功能
-  使用列表通过v-for遍历list来实现list内容的展示，绑定key为name(有一定不妥，遇到重复内容会报BUG)
+  使用列表通过v-for遍历list来实现list内容的展示
   
 
   

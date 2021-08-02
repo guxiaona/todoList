@@ -8,6 +8,7 @@
             v-model="inputValue"
             placeholder="添加ToDo"
             clearable
+            autofocus
             style="width: 400px"
             @keyup.enter.native="addData(inputValue)"
           />

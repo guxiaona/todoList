@@ -18,9 +18,9 @@
 </template>
 
 <script>
-import NavHeader from "@/components/navHeader/NavHeader";
-import NavMain from "@/components/navMain/NavMain";
-import NavFooter from "@/components/navFooter/NavFooter";
+import NavHeader from "@components/navHeader/NavHeader";
+import NavMain from "@components/navMain/NavMain";
+import NavFooter from "@components/navFooter/NavFooter";
 
 import { createNamespacedHelpers } from "vuex";
 

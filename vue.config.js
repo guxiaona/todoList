@@ -6,19 +6,19 @@ module.exports = {
 
     outputDir: "dist", // 构建文件的输出目录
 
-    assetsDir: "static", // 静态资源(js、css、img、fonts)目录
+    assetsDir: "", // 静态资源(js、css、img、fonts)目录
 
     indexPath: "index.html", //HTML的输出路径
 
     filenameHashing: true, // 文件名哈希
 
-    // lintOnSave: true, // 是否在开发环境下通过 eslint-loader 在每次保存时 lint 代码。
+    lintOnSave: true, // 是否在开发环境下通过 eslint-loader 在每次保存时 lint 代码。
 
     runtimeCompiler: false, // 是否使用带有浏览器内编译器的完整构建版本
 
     productionSourceMap: true, // 生产环境的 source map
 
-    // integrity:false // 若构建后的文件是部署在 CDN 上的，启用可提供安全性
+    integrity: false, // 若构建后的文件是部署在 CDN 上的，启用可提供安全性
 
     chainWebpack: config => {
         // 修复HMR
@@ -36,8 +36,9 @@ module.exports = {
     },
 
     css: {
-        extract: false, // 将组件内的CSS提取到一个单独的CSS文件
+        extract: true, // 将组件内的CSS提取到一个单独的CSS文件
         sourceMap: false,
+        loaderOptions: {}
     },
 
     devServer: {

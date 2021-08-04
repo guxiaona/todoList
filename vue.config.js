@@ -12,7 +12,7 @@ module.exports = {
 
     filenameHashing: true, // 文件名哈希
 
-    lintOnSave: true, // 是否在开发环境下通过 eslint-loader 在每次保存时 lint 代码。
+    // lintOnSave: true, // 是否在开发环境下通过 eslint-loader 在每次保存时 lint 代码。
 
     runtimeCompiler: false, // 是否使用带有浏览器内编译器的完整构建版本
 

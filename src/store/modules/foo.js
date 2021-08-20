@@ -2,16 +2,16 @@ export default {
     namespaced: true,
     state: {
         list: [{
-                name: "gu",
+                name: "写手账",
                 complete: false,
             },
             {
-                name: "xiao",
+                name: "锻炼",
                 complete: false,
             },
         ],
         donelist: [{
-            name: 'na',
+            name: '养花',
             complete: true
         }],
     },
